@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="rt_vineto.list">
+      <field name="name">rt_vineto list</field>
+      <field name="model">rt_vineto.rt_vineto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="rt_vineto.action_window">
+      <field name="name">rt_vineto window</field>
+      <field name="res_model">rt_vineto.rt_vineto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="rt_vineto.action_server">
+      <field name="name">rt_vineto server</field>
+      <field name="model_id" ref="model_rt_vineto_rt_vineto"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="rt_vineto" id="rt_vineto.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="rt_vineto.menu_1" parent="rt_vineto.menu_root"/>
+    <menuitem name="Menu 2" id="rt_vineto.menu_2" parent="rt_vineto.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="rt_vineto.menu_1_list" parent="rt_vineto.menu_1"
+              action="rt_vineto.action_window"/>
+    <menuitem name="Server to list" id="rt_vineto" parent="rt_vineto.menu_2"
+              action="rt_vineto.action_server"/>
+    -->
+  </data>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="hr_employee_view_form_page" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.inherit.resume</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='public']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="partner_form_view_pharmacy_inherit" model="ir.ui.view">
+        <field name="name">partner.form.pharmacy.inherited</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group" position="after">
+                <group>
+                    <field name="is_doctor" string="Is Doctor?"/>
+                    <field name="is_patient" string="Is Patient?"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_pharmacy_quotations" model="ir.actions.act_window">
+        <field name="name">Quotations</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_id" ref="sale.view_quotation_tree"/>
+        <field name="view_mode">tree,form,calendar,graph,kanban,pivot</field>
+        <field name="domain">[]</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+    </record>
+
+    <record id="action_pharmacy_orders" model="ir.actions.act_window">
+        <field name="name">Sales Orders</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,form,calendar,graph,kanban,pivot</field>
+        <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+        <field name="domain">[('state','not in',('draft','sent','cancel'))]</field>
+    </record>
+
+    <record id="action_invoice_pharmacy_sales" model="ir.actions.act_window">
+        <field name="name">Invoices Journal Entries</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="account.view_move_tree"/>
+        <field name="domain">[
+            ('state', 'in', ['draft','posted'])]
+        </field>
+    </record>
+
+    <record id="invoice_tree_with_onboarding_pharmacy" model="ir.actions.act_window">
+        <field name="name">Invoices</field>
+        <field name="res_model">account.invoice</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="account.invoice_tree_with_onboarding"/>
+        <field name="domain">[
+            ('state', 'not in', ['draft', 'cancel']),
+            ('type', 'in', ['out_invoice', 'out_refund'])]</field>
+    </record>
+
+    <record id="res_partner_action_pharmacy_customer" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_customer': 1,'res_partner_search_mode': 'customer', 'default_is_company':
+            True, 'default_customer_rank': 1}
+        </field>
+    </record>
+    <record id="view_hospital_appointment_search" model="ir.ui.view">
+        <field name="name">view.hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <search string="Search Appointment">
+                <field name="name" string="Hospital Appointments"
+                       filter_domain="['|', ('patient_id','ilike',self), ('name','ilike',self)]"/>
+                <field name="name"/>
+                <field name="patient_age"/>
+            </search>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_customers" name="Clients &#38; Orders" sequence="2"
+              parent="rt_pharmacy.main_menu_pharmacy"/>
+    <menuitem id="menu_quataions" name="Quotations" sequence="0"
+              parent="rt_pharmacy.menu_customers"
+              action="action_pharmacy_quotations"/>
+    <menuitem id="menu_pharmacy_sale_order" name="Sale Orders" sequence="1"
+              parent="rt_pharmacy.menu_customers"
+              action="action_pharmacy_orders"/>
+    <menuitem id="menu_pharmacy_invoices" name="Client Invoice(s)" sequence="3"
+              parent="rt_pharmacy.menu_customers"
+              action="invoice_tree_with_onboarding_pharmacy"/>
+    <menuitem id="menu_pharmacy_invoice_journal" name="Invoice(s) Journal Entries" sequence="4"
+              parent="rt_pharmacy.menu_customers"
+              action="action_invoice_pharmacy_sales"/>
+    <menuitem id="menu_pharmacy_customers" name="Clients" sequence="2"
+              parent="rt_pharmacy.menu_customers"
+              action="res_partner_action_pharmacy_customer"/>
+
+</odoo>

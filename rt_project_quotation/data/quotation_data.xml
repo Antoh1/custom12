@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Projects -->
+        <record id="quotation_project_green" model="quotation.project">
+            <field name="name">Greenhouse(s)</field>
+        </record>
+        <record id="quotation_project_dryer" model="quotation.project">
+            <field name="name">Solar Dryer(s)</field>
+        </record>
+        <record id="quotation_project_irrigation" model="quotation.project">
+            <field name="name">Irrigation System(s)</field>
+        </record>
+        <record id="quotation_project_borehole" model="quotation.project">
+            <field name="name">Borehole Drilling</field>
+        </record>
+        <record id="quotation_project_dam" model="quotation.project">
+            <field name="name">Dam Lining</field>
+        </record>
+
+        <!--     item categories-->
+        <record id="item_category_galv" model="product.category">
+            <field name="name">Galvanized Steel Tubes</field>
+            <field name="is_project_item">True</field>
+        </record>
+        <record id="item_category_galv2" model="product.category">
+            <field name="name">Galvanized Steel Tubes</field>
+            <field name="is_project_item">True</field>
+        </record>
+        <record id="item_category_non_galv" model="product.category">
+            <field name="name">Non Galvanized Steel Tubes</field>
+            <field name="is_project_item">True</field>
+        </record>
+        <record id="item_category_non_galv2" model="product.category">
+            <field name="name">Non Galvanized Steel Tubes</field>
+            <field name="is_project_item">True</field>
+        </record>
+        <record id="item_category_other" model="product.category">
+            <field name="name">Other Steel Materials</field>
+            <field name="is_project_item">True</field>
+        </record>
+        <record id="item_category_other2" model="product.category">
+            <field name="name">Other Steel Materials</field>
+            <field name="is_project_item">True</field>
+        </record>
+
+<!--        item group unit of measure-->
+        <record id="items_units1" model="quotation.uom">
+            <field name="name">Unit(s)</field>
+        </record>
+        <record id="items_units2" model="quotation.uom">
+            <field name="name">pcs</field>
+        </record>
+        <record id="items_units3" model="quotation.uom">
+            <field name="name">m</field>
+        </record>
+        <record id="items_units4" model="quotation.uom">
+            <field name="name">m2</field>
+        </record>
+        <record id="items_units5" model="quotation.uom">
+            <field name="name">kgs</field>
+        </record>
+        <record id="items_units6" model="quotation.uom">
+            <field name="name">m3</field>
+        </record>
+
+        <!--        quote defaults-->
+        <record id="quote_defaults_name" model="quote.defaults">
+            <field name="name">Instefast NB</field>
+            <field name="note">i. All Prices given are inclusive of installation charges.
+ii. The amount given includes all materials and work listed and does not include any other material, service or works not listed hereunder.
+iii. The client is responsible for making the site ready for work and providing any material or service that they are obliged to provide. That may include reliable
+    electric power, Bed preparation labor, and any other materials not herewith included in this quote.
+iv. All structures shall have a Defect Liability Period (DLP)/warrant of 6 months from the time of commissioning.
+
+Validity period: 28 days from the date of issue.
+
+We trust that our quotation meets your approval. We look forward to working with you.
+Thank you for choosing us. We are dedicated to serving you. We look forward to a positive feedback and more working days with you. Kindly reach us through the phone number and the email provided if you have any query.</field>
+            <field name="payment_details">BANK                    : FAMILY BANK
+ACC. No               : 0340 0002 1405
+ACCOUNT NAME:  INSTEFAST LIMITED
+
+Lipa Na Mpesa
+PayBill no. 222111
+ACC. No. 2012102
+ACCOUNT NAME: INSTEFAST LTD</field>
+        </record>
+    </data>
+</odoo>

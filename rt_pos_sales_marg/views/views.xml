@@ -1,0 +1,80 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+      <record id="view_pos_orders_margin_tree" model="ir.ui.view">
+        <field name="name">pos.order.line.margin.tree</field>
+        <field name="model">pos.order.line</field>
+        <field name="arch" type="xml">
+            <tree string="POS Order lines">
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="pos_reference"/>
+                <field name="product_id" readonly="0"/>
+                <field name="qty" readonly="1" sum="Total qty"/>
+                <!--<field name="discount" readonly="1"/>-->
+                <field name="price_unit" readonly="1" widget="monetary" sum="Sales Price"/>
+                <field name="price_total" readonly="1" widget="monetary" sum="Total S Price"/>
+                <field name="cost_price_id" readonly="1" widget="monetary" sum="Cost" group="point_of_sale.res_groups_64_25117fc4"/>
+                <field name="cost_total" readonly="1" widget="monetary" sum="Total Cost"/>
+                <field name="sale_pmargin" readonly="1" widget="monetary" sum="Profit Margin"/>
+                <field name="create_date" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record id="action_pos_order_margin_line" model="ir.actions.act_window">
+        <field name="name">POS Sales Margin</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.order.line</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="limit">200</field>
+        <field name="view_id" ref="view_pos_orders_margin_tree"/>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="rt_pos_sales_marg.action_server">
+      <field name="name">rt_pos_sales_marg server</field>
+      <field name="model_id" ref="model_rt_pos_sales_marg_rt_pos_sales_marg"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+      <record model="ir.ui.view" id="custom_pos_merg_search">
+        <field name="name">Search Pos margins</field>
+        <field name="model">pos.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Search Pos Sales Margin">
+                <field name="name"/>
+                <field name="order_id"/>
+                <filter name="create_date" string="Today Sales" domain="[('create_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('create_date', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:59:59'))]"/>
+                <filter name="create_date" string="Yest Sales" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(days=2)).strftime('%Y-%m-%d') ),('create_date', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00'))]"/>
+                <filter name="create_date" string="This Month" domain="[('create_date','&gt;', (context_today() - relativedelta(months=0)).strftime('%Y-%m-01') ),('create_date', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00'))]"/>
+                <filter name="create_date" string="Last Month" domain="[('create_date','&gt;', (context_today() - relativedelta(months=1)).strftime('%Y-%m-01') ),('create_date', '&lt;=', (context_today() - relativedelta(months=0)).strftime('%Y-%m-01'))]"/>
+                <filter name="create_date" string="Last 3 Months" domain="[('create_date','&gt;', (context_today() - relativedelta(months=2)).strftime('%Y-%m-01') ),('create_date', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00'))]"/>
+<!--                <filter name="create_date" string="Today" domain="[('create_date', '&lt;=', context_today().strftime('%Y-%m-%d'))]"/>-->
+                <field name="pos_reference"/>
+                <group string="Group By">
+                    <filter string="Product" name="product_id" context="{'group_by':'product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="menu_point_of_sales_margin"
+        name="POS Sales Margin"
+        parent="point_of_sale.menu_point_rep"
+        action="action_pos_order_margin_line"
+        sequence="100"/>
+  </data>
+</odoo>

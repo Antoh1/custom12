@@ -1,0 +1,442 @@
+<odoo>
+    <data>
+
+        <!--      PROJECT WORKS-->
+        <record model="ir.ui.view" id="planned_work_tree_view">
+            <field name="name">planned.work.tree.view</field>
+            <field name="model">planned.work</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_work_form_view">
+            <field name="name">planned.work.form.view</field>
+            <field name="model">planned.work</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--      PROJECT B-->
+        <record model="ir.ui.view" id="planned_workB_tree_view">
+            <field name="name">planned.workb.tree.view</field>
+            <field name="model">planned.workb</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workb_form_view">
+            <field name="name">planned.workb.form.view</field>
+            <field name="model">planned.workb</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--      PROJECT C-->
+        <record model="ir.ui.view" id="planned_workC_tree_view">
+            <field name="name">planned.workc.tree.view</field>
+            <field name="model">planned.workc</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workc_form_view">
+            <field name="name">planned.workc.form.view</field>
+            <field name="model">planned.workc</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT D-->
+        <record model="ir.ui.view" id="planned_workD_tree_view">
+            <field name="name">planned.workd.tree.view</field>
+            <field name="model">planned.workd</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workd_form_view">
+            <field name="name">planned.workd.form.view</field>
+            <field name="model">planned.workd</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT E-->
+        <record model="ir.ui.view" id="planned_workE_tree_view">
+            <field name="name">planned.worke.tree.view</field>
+            <field name="model">planned.worke</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_worke_form_view">
+            <field name="name">planned.worke.form.view</field>
+            <field name="model">planned.worke</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT F-->
+        <record model="ir.ui.view" id="planned_workF_tree_view">
+            <field name="name">planned.workf.tree.view</field>
+            <field name="model">planned.workf</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workf_form_view">
+            <field name="name">planned.workf.form.view</field>
+            <field name="model">planned.workf</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT G-->
+        <record model="ir.ui.view" id="planned_workG_tree_view">
+            <field name="name">planned.workg.tree.view</field>
+            <field name="model">planned.workg</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workg_form_view">
+            <field name="name">planned.workg.form.view</field>
+            <field name="model">planned.workg</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT H-->
+        <record model="ir.ui.view" id="planned_workH_tree_view">
+            <field name="name">planned.workh.tree.view</field>
+            <field name="model">planned.workh</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workh_form_view">
+            <field name="name">planned.workh.form.view</field>
+            <field name="model">planned.workh</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT I-->
+        <record model="ir.ui.view" id="planned_workI_tree_view">
+            <field name="name">planned.worki.tree.view</field>
+            <field name="model">planned.worki</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_worki_form_view">
+            <field name="name">planned.worki.form.view</field>
+            <field name="model">planned.worki</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--      PROJECT J-->
+        <record model="ir.ui.view" id="planned_workJ_tree_view">
+            <field name="name">planned.workj.tree.view</field>
+            <field name="model">planned.workj</field>
+            <field name="arch" type="xml">
+                <tree string="Planned Work">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                    <field name="quote_id" string="Quote"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="planned_workj_form_view">
+            <field name="name">planned.workj.form.view</field>
+            <field name="model">planned.workj</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet string="Project Work">
+                        <div class="oe_title">
+                            <group>
+                                <field name="project_category" string="Project Category"/>
+                            </group>
+                            <h1 class="o_row">
+                                <field name="name" placeholder="Select or Create Project Work..." domain="[('project_category','=',project_category)]"/>
+                            </h1>
+                            <group>
+                                <field name="labour_rate" string="Labour Rate(%)" placeholder="Input the % of labour chargable per section..."/>
+                            </group>
+                        </div>
+                        <group>
+                            <field name="materials_used"/>
+                        </group>
+                        <group>
+                            <field name="quote_id" string="Quote"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--        ACTIONS-->
+
+
+        <record model="ir.actions.act_window" id="action_planned_work">
+            <field name="name">Project Work</field>
+            <field name="res_model">planned.work</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Create Project Works
+                </p>
+            </field>
+        </record>
+<!--        <menuitem name="Project Works" id="project_work"-->
+<!--                  parent="rt_project_quotation.project_main_quote"-->
+<!--                  action="action_planned_work" sequence="3"/>-->
+    </data>
+</odoo>

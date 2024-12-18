@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+
+        <!--      MATERIAL USED A-->
+        <record model="ir.ui.view" id="material_used_tree_view">
+            <field name="name">material.used.tree.view</field>
+            <field name="model">material.used</field>
+            <field name="arch" type="xml">
+                <tree string="Items">
+                    <field name="item" string="Item"/>
+                    <field name="project_category" string="Project"/>
+<!--                    <field name="work_id" string="Project Section"/>-->
+                    <field name="items_quantity" string="Quantity"/>
+                    <field name="product_uom" string="Unit(s)"/>
+                    <field name="items_rate" string="Price"/>
+                    <field name="items_total" string="Amount" sum="Total"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="material_used_form_view">
+            <field name="name">material.used.form.view</field>
+            <field name="model">material.used</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="project_category" string="Project" placeholder="project to which Item(s) belong..."/>
+                            <field name="item" string="Item" placeholder="Select or Create a group of items..." domain="[('project_category','=',project_category)]"/>
+                            <field name="items_quantity" string="Quantity"/>
+                            <field name="product_uom" string="Unit(s)" placeholder="Unit of measure for Group of items..."/>
+                            <field name="items_rate" string="Price"/>
+                            <field name="items_total" string="Amount"/>
+                        </group>
+                        <group>
+                            <field name="items_used"/>
+                        </group>
+                        <group>
+<!--                            <field name="work_id" string="Project Section"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--        ACTIONS-->
+
+
+        <record model="ir.actions.act_window" id="action_material_used">
+            <field name="name">Materials Used</field>
+            <field name="res_model">material.used</field>
+            <field name="context">{'default_material_qty':0}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Create Project Materials
+                </p>
+            </field>
+        </record>
+
+<!--        <menuitem name="Project Materials" id="project_material" parent="rt_project_quotation.project_main_quote" action="action_material_used" sequence="5"/>-->
+    </data>
+</odoo>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_project_materials">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Materials Checklist  <h2 t-field="o.name"/></h2>
+                        <table class="table table-sm table-bordered">
+                            <tr>
+                                <td>
+                                    <strong>Client</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.customer.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Project Details</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.details"/>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <t t-set='project1' t-value='len(o.planned_works) != 0'/>
+                        <t t-if='project1'>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Work</th>
+                                    <th>Item</th>
+                                    <th>Units</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <b><tr t-esc="o.planned_works[0].project_category.name"></tr></b>
+                                <tr t-foreach="o.planned_works" t-as="line">
+                                    <td>
+                                       <!--  <t t-set='work' t-value='1'/>
+                                        <tr t-foreach="line.materials_used.items_used" t-as="item" style="border: 1px solid black">
+                                            <td><t t-if='work == 1'><span t-field="line.name"/></t></td><td><span t-field="item.item"/></td><td><span t-field="item.product_uom"/></td><td><span t-field="item.item_qty"/></td>
+                                            <t t-set="work" t-value="work + 1"/>
+                                        </tr> -->
+                                        <t t-set='work' t-value='1'/>
+                                        <tr t-foreach="line.materials_used" t-as="item_group">
+                                        <td>
+                                            <tr t-foreach="item_group.items_used" t-as="item" style="border: 1px solid black">
+                                                <td class="border border-dark"><t t-if='work == 1'><span t-field="line.name"/></t></td>
+                                                <td class="border border-dark"><span t-field="item.item"/></td>
+                                                <td class="border border-dark"><span t-field="item.product_uom"/></td>
+                                                <td class="border border-dark"><span t-field="item.item_qty"/></td>
+                                                <t t-set="work" t-value="work + 1"/>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <t t-set='project2' t-value='len(o.planned_works2) != 0'/>
+                        <t t-if='project2'>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Work</th>
+                                    <th>Item</th>
+                                    <th>Units</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <b><tr t-esc="o.planned_works2[0].project_category.name"></tr></b>
+                            <tr t-foreach="o.planned_works2" t-as="line">
+                                <td>
+                                    <t t-set='work' t-value='1'/>
+                                    <tr t-foreach="line.materials_used" t-as="item_group">
+                                        <td>
+                                            <tr t-foreach="item_group.items_used" t-as="item" style="border: 1px solid black">
+                                                <td class="border border-dark"><t t-if='work == 1'><span t-field="line.name"/></t></td>
+                                                <td class="border border-dark"><span t-field="item.item"/></td>
+                                                <td class="border border-dark"><span t-field="item.product_uom"/></td>
+                                                <td class="border border-dark"><span t-field="item.item_qty"/></td>
+                                                <t t-set="work" t-value="work + 1"/>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <t t-set='project3' t-value='len(o.planned_works3) != 0'/>
+                        <t t-if='project3'>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Work</th>
+                                    <th>Item</th>
+                                    <th>Units</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <b><tr t-esc="o.planned_works3[0].project_category.name"></tr></b>
+                            <tr t-foreach="o.planned_works3" t-as="line">
+                                <td>
+                                    <t t-set='work' t-value='1'/>
+                                    <tr t-foreach="line.materials_used" t-as="item_group">
+                                        <td>
+                                            <tr t-foreach="item_group.items_used" t-as="item" style="border: 1px solid black">
+                                                <td class="border border-dark"><t t-if='work == 1'><span t-field="line.name"/></t></td>
+                                                <td class="border border-dark"><span t-field="item.item"/></td>
+                                                <td class="border border-dark"><span t-field="item.product_uom"/></td>
+                                                <td class="border border-dark"><span t-field="item.item_qty"/></td>
+                                                <t t-set="work" t-value="work + 1"/>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <t t-set='project4' t-value='len(o.planned_works4) != 0'/>
+                        <t t-if='project4'>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Work</th>
+                                    <th>Item</th>
+                                    <th>Units</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <b><tr t-esc="o.planned_works4[0].project_category.name"></tr></b>
+                            <tr t-foreach="o.planned_works4" t-as="line">
+                                <td>
+                                    <t t-set='work' t-value='1'/>
+                                    <tr t-foreach="line.materials_used" t-as="item_group">
+                                        <td>
+                                            <tr t-foreach="item_group.items_used" t-as="item" style="border: 1px solid black">
+                                                <td class="border border-dark"><t t-if='work == 1'><span t-field="line.name"/></t></td>
+                                                <td class="border border-dark"><span t-field="item.item"/></td>
+                                                <td class="border border-dark"><span t-field="item.product_uom"/></td>
+                                                <td class="border border-dark"><span t-field="item.item_qty"/></td>
+                                                <t t-set="work" t-value="work + 1"/>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <t t-set='project5' t-value='len(o.planned_works5) != 0'/>
+                        <t t-if='project5'>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Work</th>
+                                    <th>Item</th>
+                                    <th>Units</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <b><tr t-esc="o.planned_works5[0].project_category.name"></tr></b>
+                            <tr t-foreach="o.planned_works5" t-as="line">
+                                <td>
+                                    <t t-set='work' t-value='1'/>
+                                    <tr t-foreach="line.materials_used" t-as="item_group">
+                                        <td>
+                                            <tr t-foreach="item_group.items_used" t-as="item" style="border: 1px solid black">
+                                                <td class="border border-dark"><t t-if='work == 1'><span t-field="line.name"/></t></td>
+                                                <td class="border border-dark"><span t-field="item.item"/></td>
+                                                <td class="border border-dark"><span t-field="item.product_uom"/></td>
+                                                <td class="border border-dark"><span t-field="item.item_qty"/></td>
+                                                <t t-set="work" t-value="work + 1"/>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                        <t t-set='project6' t-value='len(o.planned_works6) != 0'/>
+                        <t t-if='project6'>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Work</th>
+                                    <th>Item</th>
+                                    <th>Units</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <b><tr t-esc="o.planned_works6[0].project_category.name"></tr></b>
+                            <tr t-foreach="o.planned_works6" t-as="line">
+                                <td>
+                                    <t t-set='work' t-value='1'/>
+                                    <tr t-foreach="line.materials_used" t-as="item_group">
+                                        <td>
+                                            <tr t-foreach="item_group.items_used" t-as="item" style="border: 1px solid black">
+                                                <td class="border border-dark"><t t-if='work == 1'><span t-field="line.name"/></t></td>
+                                                <td class="border border-dark"><span t-field="item.item"/></td>
+                                                <td class="border border-dark"><span t-field="item.product_uom"/></td>
+                                                <td class="border border-dark"><span t-field="item.item_qty"/></td>
+                                                <t t-set="work" t-value="work + 1"/>
+                                            </tr>
+                                        </td>
+                                    </tr>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

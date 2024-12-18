@@ -1,0 +1,256 @@
+<odoo>
+  <data>
+
+      <record model="ir.actions.act_window" id="project_invoice_action">
+          <field name="name">Invoices</field>
+          <field name="res_model">account.invoice</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">tree,form</field>
+          <field name="view_id" ref="account.invoice_tree"/>
+          <field name="domain">[('is_project_invoice','=',True)]</field>
+          <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+          <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                  Create Invoices.
+              </p>
+          </field>
+      </record>
+
+      <record id="project_invoice_action_view_tree" model="ir.actions.act_window.view">
+          <field name="sequence">1</field>
+          <field name="view_mode">tree</field>
+          <field name="act_window_id" ref="rt_project_quotation.project_invoice_action"/>
+      </record>
+
+      <record id="project_invoice_view_form" model="ir.actions.act_window.view">
+          <field name="sequence">2</field>
+          <field name="view_mode">form</field>
+          <field name="view_id" ref="account.invoice_form"/>
+          <field name="act_window_id" ref="rt_project_quotation.project_invoice_action"/>
+      </record>
+
+      <record model="ir.ui.view" id="project_quote_tree_view">
+            <field name="name">project.quote.tree.view</field>
+            <field name="model">project.quotation</field>
+            <field name="arch" type="xml">
+                <tree string="Quotation" decoration-success="state == 'invoiced'" decoration-danger="state == 'cancel'">
+                    <field name="work_date"/>
+                    <field name="name"/>
+                    <field name="customer"/>
+                    <field name="category" string="Project"/>
+                    <field name="work_cost"/>
+                    <field name="state" string="Status"/>
+                </tree>
+            </field>
+      </record>
+
+      <record model="ir.ui.view" id="project_quote_form_view">
+            <field name="name">project.quote.form.view</field>
+            <field name="model">project.quotation</field>
+            <field name="arch" type="xml">
+                <form string="Project Quotation">
+                    <header>
+                        <button name="project_create_invoice" string="Create Invoices" type="object"
+                                class="btn-primary" states="waiting"/>
+                        <button class="btn-primary" name="cancel" string="Cancel" type="object" states="waiting"/>
+                        <button class="btn-primary" name="set_to_draft" string="Set to Draft" type="object" states="invoiced,cancel"/>
+                        <field name="state" widget="statusbar" statusbar_visible="waiting,invoiced,cancel"/>
+                    </header>
+                    <sheet string="Project Quotation">
+                        <div class="oe_button_box" name="button_box">
+                            <button name="%(project_invoice_action)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                context = "{'search_default_project_quote': [active_id]}"
+                                attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                                <field name="invoice_count" widget="statinfo" string="Invoice(s)"/>
+                            </button>
+<!--                            <button class="oe_stat_button" type="object" name="get_invoices"-->
+<!--                                    icon="fa-pencil-square-o">-->
+<!--                                <field string="Invoices" name="invoice_count" widget="statinfo"/>-->
+<!--                            </button>-->
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly':[('state','=','invoiced')]}"/>
+<!--                                <field name="is_customer" invisible="1"/>-->
+                                <field name="customer" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                                <field name="details" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                                <field name="work_cost" string="Total Amount"/>
+                                <field name="user_id" attrs="{'readonly':[('state','=','invoiced')]}"/>
+
+                            </group>
+                            <group>
+                                <field name="category" invisible="0" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                                <field name="size" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                                <field name="work_date" attrs="{'readonly':[('state','=','invoiced')]}"/>
+                                <field name="is_single_project" attrs="{'invisible':[('is_multi_project','=',True)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="is_multi_project" attrs="{'invisible':[('is_single_project','=',True)],'readonly':[('state','=','invoiced')]}"/>
+<!--                                <field name="category" string="Main Project"/>-->
+                                <field name="project_category" string="Project A" attrs="{'invisible':[('is_single_project','=',False),('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="project_category2" string="Project B" attrs="{'invisible':[('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="project_category3" string="Project C" attrs="{'invisible':[('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="project_category4" string="Project D" attrs="{'invisible':[('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="project_category5" string="Project E" attrs="{'invisible':[('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="project_category6" string="Project F" attrs="{'invisible':[('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                                <field name="project_category7" string="Project G" attrs="{'invisible':[('is_multi_project','=',False)],'readonly':[('state','=','invoiced')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="planned_work_page" string="Planned Work">
+                                <group string="Project A">
+                                    <field name="planned_works" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project B" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works2" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project C" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works3" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project D" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works4" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project E" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works4" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project F" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works5" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project G" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works6" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Project H" attrs="{'invisible':[('is_multi_project','=',False)]}">
+                                    <field name="planned_works7" attrs="{'readonly':[('state','=','invoiced')]}">
+                                        <tree string="Planned Work">
+                                            <field name="name"/>
+                                            <field name="project_category"/>
+                                            <field name="quantity"/>
+                                            <field name="rate"/>
+                                            <field name="total" sum="Total"/>
+                                            <field name="labour_rate"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group>
+                                    <field name="defaults" invisible="1"/>
+                                    <field name="note"/>
+                                    <field name="pay_details"/>
+                                </group>
+                            </page>
+                     </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+      </record>
+
+      <record model="ir.ui.view" id="quote_defaults_form_view">
+            <field name="name">quote.defaults.form.view</field>
+            <field name="model">quote.defaults</field>
+            <field name="arch" type="xml">
+                <form>
+<!--                    <header></header>-->
+                    <sheet string="Defaults">
+                        <group>
+                            <field name="name"/>
+                            <field name="note"/>
+                            <field name="payment_details"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_quote_defaults">
+          <field name="name">Quote Defaults</field>
+          <field name="res_model">quote.defaults</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p>
+                  Create Quote Defaults
+              </p>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_project_quote">
+          <field name="name">Project Quotations</field>
+          <field name="res_model">project.quotation</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p>
+                  Create Project Specific Quotations
+              </p>
+          </field>
+      </record>
+
+      <menuitem name="Project Quotations" id="project_main_quote" parent="point_of_sale.menu_point_root" sequence="11"/>
+      <menuitem name="Project Quotations" id="project_quote" parent="project_main_quote" action="action_project_quote" sequence="6"/>
+  </data>
+</odoo>

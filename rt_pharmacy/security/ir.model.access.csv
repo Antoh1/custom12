@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_medicine_type,access.medicine.type,model_medicine_type,,1,1,1,1
+access_medicine_company,medicine.company,model_medicine_company,group_pharmacy_manager,1,1,1,1
+access_hospital_appointment,hospital.appointment,model_hospital_appointment,group_pharmacy_manager,1,1,1,1
+access_hospital_visit,hospital.visit,model_hospital_visit,group_pharmacy_manager,1,1,1,1
+access_expiry_report_wizard,expiry.report.wizard,model_expiry_report_wizard,group_pharmacy_manager,1,1,1,1

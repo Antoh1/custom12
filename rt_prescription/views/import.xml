@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        
+ <template id="assets_backend" name="rt_prescription assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            
+            <script type="text/javascript" src="/rt_prescription/static/src/js/buttons.js"/>
+            <script type="text/javascript" src="/rt_prescription/static/src/js/order.js"/>
+            <script type="text/javascript" src="/rt_prescription/static/src/js/popups.js"/>
+           
+            <link rel="stylesheet" href="/rt_prescription/static/src/css/ropetech.css"/>
+        </xpath>
+    </template>
+</odoo>

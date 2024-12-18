@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="vineto_header_footer">
+        <t t-set="company" t-value="user.company_id"/>
+        <div class="header">
+            <div style="height: 50px">
+                <img src="/rt_company_letter/static/src/img/vntfooter.png" alt="Vineto"/>
+            </div>
+<!--            <div class="row" style="font-family: 'Trebuchet MS', sans-serif;">-->
+<!--                <div class="col-12 mb4">-->
+<!--                    <img src="/rt_company_letter/static/src/img/vntheader.png" alt="Vineto"/>-->
+<!--                </div>-->
+<!--                <div class="col-5 mb4">-->
+<!--                    <div t-field="company.partner_id"-->
+<!--                        t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'-->
+<!--                    />-->
+<!--                </div>-->
+<!--                <div class="col-2 mb4">-->
+<!--                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px;" alt="Logo"/>-->
+<!--                </div>-->
+<!--                <div class="col-5 mb4 text-right">-->
+<!--                    <div t-if="report_type == 'pdf'" class="text-muted">-->
+<!--                        Page: <li class="list-inline-item"><strong><span class="page"/> / <span class="topage"/></strong></li>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        Print date: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div t-if="company.logo or company.report_header" class="row zero_min_height">-->
+<!--                <div class="col-12">-->
+<!--                    <div style="border-bottom: 1px solid black;"/>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+        <div class="footer">
+            <div class="text-center" style="border-top: 1px solid black;">
+                <ul class="list-inline mb4 text-nowrap">
+                    <li t-if="company.phone" class="list-inline-item d-inline">Phone: <span class="o_force_ltr" t-field="company.phone"/></li>
+                    <li t-if="company.email" class="list-inline-item d-inline">Email: <span t-field="company.email"/></li>
+                    <li t-if="company.website" class="list-inline-item d-inline">Web: <span t-field="company.website"/></li>
+                    <li t-if="company.vat" class="list-inline-item d-inline"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="report_delivery_document" inherit_id="stock.report_delivery_document">
+        <xpath expr="//t[@t-call='web.html_container']" position="replace">
+        <t t-call="web.html_container">
+            <t t-call="rt_vineto.vineto_header_footer">
+                <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)" />
+                <t t-set="address">
+                    <table>
+                        <tr>
+                            <div><br/>
+                                    <h2 style="color: green">
+                                        <span>DELIVERY NOTE</span>
+                                    </h2><br/>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Delivery # </strong><span t-field="o.name"/></span>
+                            </div>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Delivery Date:</strong>
+                                    <t t-if="o.state == 'done'"><span t-field="o.date_done"/></t>
+                                    <t t-if="o.state != 'done'"><span t-field="o.scheduled_date"/></t>
+                                </span>
+                            </div>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>For Order # </strong><span t-field="o.sale_id.name"/></span>
+                            </div>
+                            <div t-if="o.invoice_no" style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Invoice No # </strong><span t-field="o.invoice_no"/></span>
+                            </div>
+                            <div t-if="o.lpo_number" style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>LPO No # </strong><span t-field="o.lpo_number"/></span>
+                            </div>
+                        </tr >
+                        <tr>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Vehicle: </strong><span class="m-0" t-field="o.vehicle"/></span>
+                            </div>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Vehicle No: </strong><span class="m-0" t-field="o.vehicle_no"/></span>
+                            </div>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Driver: </strong><span class="m-0" t-field="o.driver"/></span>
+                            </div>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <span><strong>Driver Contact: </strong><span class="m-0" t-field="o.driver_no"/></span>
+                            </div>
+                            <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <strong>Delivery To:</strong>
+                                <div class="col-auto mw-100 mb-2" style="border: 1px solid black; border-radius: 10px;" t-field="o.sale_id.partner_invoice_id"
+                                     t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                            </div>
+                        </tr>
+                        <tr>
+
+                        </tr>
+                    </table>
+
+                </t>
+                <t t-set="information_block">
+                    <!--                    <h3 class="" t-field="company.report_header"/>-->
+                    <img t-if="o.company_id.logo" style="max-width: 200px; max-height: 130px;" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/><br/>
+                    <!--                        <img t-if="o.company_id.logo" width="200" hspace="25" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/><br/>-->
+                    <h4><span t-field="o.company_id.partner_id.name"/></h4>
+                    <span t-field="o.company_id.partner_id.street"/><span>&#160;|&#160;</span><br/>
+                    <span t-field="o.company_id.street2"/><span>&#160;|&#160;</span><span t-field="o.company_id.partner_id.city"/>
+                    <span>&#160;|&#160;</span><br/><span t-field="o.company_id.partner_id.phone"/>
+                    <span>&#160;|&#160;</span><span t-field="o.company_id.partner_id.email"/><br/>
+                    <span>&#160;|&#160;</span><span t-field="o.company_id.partner_id.website"/>
+                    <span>&#160;|&#160;</span><span>PIN :<span t-field="o.company_id.partner_id.vat"/></span>
+                    <div class="clearfix mb8"/>
+                    <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                        <div>
+                            <strong>ClIENT :</strong>
+                            <div t-field="o.partner_id"
+                                 t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                            <p t-if="o.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></p>
+                        </div>
+                    </div><br/>
+                </t>
+                <t t-if="o.sale_id.partner_shipping_id == o.sale_id.partner_invoice_id
+                             and o.sale_id.partner_invoice_id != o.partner_id
+                             or o.sale_id.partner_shipping_id != o.sale_id.partner_invoice_id">
+                    <t t-set="information_block">
+                        <img t-if="o.company_id.logo" width="200" hspace="25" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/><br/>
+                        <span t-field="o.company_id.partner_id.street"/><span>&#160;|&#160;</span><br/>
+                        <span t-field="o.company_id.street2"/><span>&#160;|&#160;</span><span t-field="o.company_id.partner_id.city"/>
+                        <span>&#160;|&#160;</span><br/><span t-field="o.company_id.partner_id.phone"/>
+                        <span t-field="o.company_id.partner_id.email"/><br/>
+                        <span>&#160;|&#160;</span><span t-field="o.company_id.partner_id.website"/>
+                        <span>&#160;|&#160;</span><span>PIN :<span t-field="o.company_id.partner_id.vat"/></span>
+                    <div class="clearfix mb8"/>
+<!--                        <strong t-if="o.sale_id.partner_shipping_id == o.sale_id.partner_invoice_id">Delivery To:</strong>-->
+<!--                        <div class="col-auto mw-100 mb-2" style="border: 1px solid black; border-radius: 10px;" t-field="o.sale_id.partner_invoice_id"-->
+<!--                             t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>-->
+<!--                        <t t-if="o.sale_id.partner_shipping_id != o.sale_id.partner_invoice_id">-->
+<!--                        </t>-->
+                        <div style="border: 1px solid black; border-radius: 10px;" class="col-auto mw-100 mb-2">
+                                <div>
+                                    <strong>ClIENT :</strong>
+                                    <div t-field="o.sale_id.partner_id"
+                                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                                    <p t-if="o.sale_id.partner_id.vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.sale_id.partner_id.vat"/></p>
+                                </div>
+                        </div><br/>
+                    </t>
+                </t>
+
+                <div class="page">
+                    <table class="table table-sm mt48" t-if="o.state!='done'">
+                        <thead>
+                            <tr>
+                                <th><strong>Product</strong></th>
+                                <th><strong>Quantity</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+                            <tr t-foreach="lines" t-as="move">
+                                <td>
+                                    <span t-field="move.product_id"/>
+                                    <p t-if="o.picking_type_code == 'outgoing'">
+                                        <span t-field="move.product_id.sudo().description_pickingout"/>
+                                    </p>
+                                    <p t-if="o.picking_type_code == 'incoming'">
+                                        <span t-field="move.product_id.sudo().description_pickingin"/>
+                                    </p>
+                                </td>
+                                <td>
+                                    <span t-field="move.product_uom_qty"/>
+                                    <span t-field="move.product_uom"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm mt48" t-if="o.move_line_ids and o.state=='done'">
+                        <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" />
+                        <thead>
+                            <tr>
+                                <th><strong>Product</strong></th>
+                                <th name="lot_serial" t-if="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                                    Lot/Serial Number
+                                </th>
+                                <th class="text-center"><strong>Quantity</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.move_line_ids" t-as="move_line">
+                                <td>
+                                    <span t-field="move_line.product_id"/>
+                                    <p t-if="o.picking_type_code == 'outgoing'">
+                                        <span t-field="move_line.product_id.sudo().description_pickingout"/>
+                                    </p>
+                                    <p t-if="o.picking_type_code == 'incoming'">
+                                        <span t-field="move_line.product_id.sudo().description_pickingin"/>
+                                    </p>
+                                </td>
+                                <td t-if="has_serial_number and move_line.lot_name" groups="stock.group_lot_on_delivery_slip">
+                                    <span t-field="move_line.lot_name"/>
+                                </td>
+                                <td t-elif="has_serial_number" groups="stock.group_lot_on_delivery_slip">
+                                    <span t-field="move_line.lot_id.name"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-field="move_line.qty_done"/>
+                                    <span t-field="move_line.product_uom_id"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        <t t-if="o.backorder_ids and o.backorder_ids.filtered(lambda x: x.state not in ('done', 'cancel'))">
+                            All items couldn't be shipped, the remaining ones will be shipped as soon as they become available.
+                        </t>
+                    </p>
+                    <table style="width:100% !important;">
+                        <thead>
+                            <tr>
+                                <th style="width:50%; border: 1px solid black" class="col-auto mw-100 mb-2"><b>Issued By:</b></th>
+                                <th style="border: 1px solid black" class="col-auto mw-100 mb-2"><b>Received By:</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border: 1px solid black" class="col-auto mw-100 mb-2">
+                                    <span>Name : &#160;<t t-esc="o.sale_id.user_id.name"/></span><br/><br/>
+                                    <span>Signature:....................................</span>
+                                </td>
+                                <td style="border: 1px solid black" class="col-auto mw-100 mb-2">
+                                    <span>Name : &#160;</span><br/><br/>
+                                    <span>Signature:...................................</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td style="border: 1px solid black" class="col-auto mw-100 mb-2">
+                                    <span>COMMENTS : &#160;</span><br/><br/><br/><br/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+         </t>
+        </xpath>
+    </template>
+
+<!--    <template id="report_deliveryslip">-->
+<!--        <t t-foreach="docs" t-as="o">-->
+<!--            <t t-call="stock.report_delivery_document" t-lang="o.partner_id.lang"/>-->
+<!--        </t>-->
+<!--    </template>-->
+
+</odoo>

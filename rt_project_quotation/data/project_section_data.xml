@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--        Project Sections-->
+        <!--        Greenhouses-->
+
+        <record id="quotation_project_section_green" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Main structure greenhouse</field>
+        </record>
+        <record id="quotation_project_section_green2" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Structure Covers : Roof, side and ventilation, roll up</field>
+        </record>
+        <record id="quotation_project_section_green3" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Gutters and water ways</field>
+        </record>
+        <record id="quotation_project_section_green4" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Fittings and Accessories</field>
+        </record>
+        <record id="quotation_project_section_green5" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Foundation concrete on support columns</field>
+        </record>
+        <record id="quotation_project_section_green6" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Miscellaneous costs</field>
+        </record>
+        <record id="quotation_project_section_green7" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_green"/>
+            <field name="name">Transport and Mobilization</field>
+        </record>
+
+<!--        SOLAR DRYERS-->
+        <record id="quotation_project_section_dryer" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_dryer"/>
+            <field name="name">Main structure solar dryer</field>
+        </record>
+        <record id="quotation_project_section_dryer2" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_dryer"/>
+            <field name="name">Structure Covers : Roof, side and ventilation, roll up </field>
+        </record>
+        <record id="quotation_project_section_dryer3" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_dryer"/>
+            <field name="name">Fittings and Accessories</field>
+        </record>
+        <record id="quotation_project_section_dryer4" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_dryer"/>
+            <field name="name">Foundation concrete on support columns</field>
+        </record>
+        <record id="quotation_project_section_dryer5" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_dryer"/>
+            <field name="name">Miscellaneous costs</field>
+        </record>
+        <record id="quotation_project_section_dryer6" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_dryer"/>
+            <field name="name">Transport and Mobilization</field>
+        </record>
+
+<!--        IRRIGATION SYSTEM-->
+        <record id="quotation_project_section_irrigation" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_irrigation"/>
+            <field name="name">Drip lines</field>
+        </record>
+        <record id="quotation_project_section_irrigation2" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_irrigation"/>
+            <field name="name">Fittings and Accessories</field>
+        </record>
+        <record id="quotation_project_section_irrigation3" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_irrigation"/>
+            <field name="name">Miscellaneous costs</field>
+        </record>
+        <record id="quotation_project_section_irrigation4" model="quotation.project.section">
+            <field name="project_category" ref="rt_project_quotation.quotation_project_irrigation"/>
+            <field name="name">Transport and Mobilization</field>
+        </record>
+
+    </data>
+</odoo>

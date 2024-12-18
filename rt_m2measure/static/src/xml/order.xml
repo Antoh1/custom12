@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	
+	
+	<t t-extend="Orderline">                
+        <t t-jquery="ul[class*='info-list']" t-operation="append">
+            <t t-if="line.get_line_length()">
+                <li class="info orderline-note">
+                    <i class="fa fa-tag"/>Measurements:
+                    <t t-esc="line.get_line_length()"/>m X
+                    <t t-esc="line.get_line_width()"/>m,
+                    <t t-esc="line.get_line_quantity_sqm()"/> Piece(s),
+                </li>
+            </t>
+        </t>
+    </t>
+    
+</templates>

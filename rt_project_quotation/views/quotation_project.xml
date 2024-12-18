@@ -1,0 +1,176 @@
+<odoo>
+    <data>
+
+        <!--      PROJECT SECTION NAME-->
+        <record model="ir.ui.view" id="quote_project_tree_view">
+            <field name="name">quote.project.tree.view</field>
+            <field name="model">quotation.project</field>
+            <field name="arch" type="xml">
+                <tree string="Project(s)">
+                    <field name="name" string="Project"/>
+                    <field name="project_detail" string="Description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--      PROJECT SECTION -->
+        <record model="ir.ui.view" id="project_section_tree_view">
+            <field name="name">project.section.tree.view</field>
+            <field name="model">quotation.project.section</field>
+            <field name="arch" type="xml">
+                <tree string="Project Sections">
+                    <field name="name" string="Project Section"/>
+                    <field name="project_category" string="Project"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_section_form_view">
+            <field name="name">project.section.form.view</field>
+            <field name="model">quotation.project.section</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="Project Sections">
+                        <group>
+                            <field name="project_category" string="Project"/>
+                        </group>
+                        <div class="oe_title">
+                            <h1 class="o_row"><field name="name" string="Project Section" placeholder="Fill in Project Section Name/Description..."/></h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--        MATERIAL GROUPS-->
+
+        <record model="ir.ui.view" id="material_group_tree_view">
+            <field name="name">material.group.tree.view</field>
+            <field name="model">item.group</field>
+            <field name="arch" type="xml">
+                <tree string="Material Group">
+                    <field name="name" string="Group Name"/>
+                    <field name="project_category" string="Project"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="material_group_form_view">
+            <field name="name">material.group.form.view</field>
+            <field name="model">item.group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="project_category" string="Project" />
+                        </group>
+                        <div class="o_title">
+                            <h1 class="o_row">
+                                <group>
+                                    <field name="name" string="Group Name" placeholder="The general Name for group of Item(s) in Project above..."/>
+                                </group>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--      MATERIAL ITEMS-->
+        <record model="ir.ui.view" id="material_item_tree_view">
+            <field name="name">material.item.tree.view</field>
+            <field name="model">material.used.item</field>
+            <field name="arch" type="xml">
+                <tree string="Items">
+                    <field name="item" string="Item"/>
+                    <!--                    <field name="item_desc" string="Item Detail"/>-->
+                    <!--                    <field name="item_des" string="Item Des"/>-->
+                    <field name="project_category" string="Project"/>
+                    <field name="item_category" string="Project"/>
+                    <field name="detail_id" string="Material Detail"/>
+                    <field name="item_qty" string="Quantity"/>
+                    <field name="product_uom" string="Units"/>
+                    <field name="price" string="Price"/>
+                    <field name="total" string="Total" sum="Totals"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="material_item_form_view">
+            <field name="name">material.item.form.view</field>
+            <field name="model">material.used.item</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!--                    <header></header>-->
+                    <sheet>
+                        <group>
+                            <field name="item" string="Item(s)"/>
+                            <field name="item_qty" string="Quantity" widget="required_numeric"/>
+                            <field name="product_uom" string="Units"/>
+                            <field name="price" string="Price"/>
+                            <field name="total" string="Total" widget="required_float"/>
+                            <field name="project_category" string="Project"/>
+                            <field name="item_category" string="Product Category"/>
+                        </group>
+                        <group>
+                            <field name="detail_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--        ACTIONS-->
+
+
+        <record model="ir.actions.act_window" id="action_quote_project">
+            <field name="name">Project</field>
+            <field name="res_model">quotation.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Create Project
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_quote_project_section">
+            <field name="name">Project Section Name</field>
+            <field name="res_model">quotation.project.section</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Create Project Section Name
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_material_used">
+            <field name="name">Materials Used</field>
+            <field name="res_model">material.used</field>
+            <field name="context">{'default_material_qty':0}</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Create Project Materials
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_material_group">
+            <field name="name">Materials Group</field>
+            <field name="res_model">item.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Create Group Representing Items
+                </p>
+            </field>
+        </record>
+        <menuitem name="Projects" id="quote_project_id" parent="rt_project_quotation.project_main_quote" action="action_quote_project" sequence="1"/>
+        <menuitem name="Project Sections" id="project_section_id" parent="rt_project_quotation.project_main_quote" action="action_quote_project_section" sequence="2"/>
+<!--        <menuitem name="Project Works" id="project_work" parent="rt_project_quotation.project_main_quote" action="action_planned_work" sequence="3"/>-->
+        <menuitem name="Materials Group" id="material_group_menu" parent="rt_project_quotation.project_main_quote" action="action_material_group" sequence="4"/>
+<!--        <menuitem name="Project Materials" id="project_material" parent="rt_project_quotation.project_main_quote" action="action_material_used" sequence="5"/>-->
+    </data>
+</odoo>

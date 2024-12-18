@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_order_tree_all_sales_lines_sqm" model="ir.ui.view">
+        <field name="name">pos.order.line.all.sales.tree</field>
+        <field name="model">pos.order.line</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree_all_sales_lines"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='qty']" position="after">
+                <field name="length"/>
+                <field name="width"/>
+                <field name="quantity_sqm"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_pos_all_sales_lines_sqm" model="ir.actions.act_window">
+        <field name="name">Square Meter Order lines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.order.line</field>
+        <field name="context">{'search_default_length':1}</field>
+        <field name="view_type">form</field>
+        <field name="view_id" ref="view_pos_order_tree_all_sales_lines_sqm" />
+    </record>
+
+    <record id="view_pos_order_line_filter_sqm" model="ir.ui.view">
+        <field name="name">pos.order.line.list.select.sqm</field>
+        <field name="model">pos.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Search SQM Products">
+                <field name="order_id"/>
+                <field name="product_id"/>
+<!--                <field name="length"/>-->
+                <filter string="SQMs" name="length" domain="[('length','!=',False)]"/>
+                <field name="width"/>
+                <group expand="1" string="Group By">
+                    <filter string="Product" name="product_id" context="{'group_by':'product_id'}"/>
+                    <filter string="Order" name="order_id" context="{'group_by':'order_id'}"/>
+                    <filter string="Date" name="create_date" context="{'group_by':'create_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="menu_pharmacy_prescribed_orders"
+              parent="point_of_sale.menu_point_of_sale"
+              action="action_pos_all_sales_lines_sqm"
+              sequence="6" name="SQM OrderLines"/>
+
+
+</odoo>

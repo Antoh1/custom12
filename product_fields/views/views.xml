@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+  <data>
+
+    <!-- inherited product search and extended search for new fields -->
+    <record id="product_search_inherit" model="ir.ui.view">
+      <field name="name">product.search.prod_field</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_search_view"/>
+      <field name="arch" type="xml">
+        <field name="name" position="replace">
+          <field name="name" string="Product" filter_domain="['|', '|', '|', '|', ('default_code', 'ilike', self), ('oe_number', 'ilike', self), ('v_number', 'ilike', self), ('name', 'ilike', self), ('barcode', 'ilike', self)]"/>
+        </field>
+        <!-- dummy, will be modified by groups -->
+<!--        <xpath expr="//search" position="inside">-->
+<!--          <field name="oe_number" string="OE Number"/>-->
+<!--          <field name="v_number" string="Vendor No"/>-->
+<!--          <filter string="Brand" domain="[]" context="{'group_by':'default_code'}"/>-->
+<!--        </xpath>-->
+      </field>
+    </record>
+
+    <!-- inherited product product search and extended search for new fields -->
+    <record id="product_product_search_inherit" model="ir.ui.view">
+      <field name="name">product.product.search.prod_field</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_search_form_view"/>
+      <field name="arch" type="xml">
+        <field name="name" position="replace">
+          <field name="name" string="Product" filter_domain="['|', '|', '|', '|', ('default_code', 'ilike', self), ('oe_number', 'ilike', self), ('v_number', 'ilike', self), ('name', 'ilike', self), ('barcode', 'ilike', self)]"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- inherited product form view and added fields -->
+    <record id="product_template_form_view_inherit" model="ir.ui.view">
+      <field name="name">product.template.inherited</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <separator/>
+          <field name="oe_number"/>
+          <field name="show_part_number"/>
+        </field>
+        <field name="oe_number" position="after">
+          <field name="v_number"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="product_normal_form_view_inherit" model="ir.ui.view">
+      <field name="name">product.normal.inherited</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <separator/>
+          <field name="oe_number"/>
+          <field name="show_part_number"/>
+        </field>
+        <field name="oe_number" position="after">
+          <field name="v_number"/>
+        </field>
+      </field>
+    </record>
+
+    <record id="product_normal_tree_view_inherit" model="ir.ui.view">
+      <field name="name">product.normal.tree.inherited</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_product_tree_view"/>
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <field name="oe_number"/>
+        </field>
+      </field>
+    </record>
+
+<!--    <record id="move_line_tree_view_inherit" model="ir.ui.view">-->
+<!--      <field name="name">move.line.tree.inherited</field>-->
+<!--      <field name="model">stock.move.line</field>-->
+<!--      <field name="inherit_id" ref="stock.view_move_line_tree"/>-->
+<!--      <field name="arch" type="xml">-->
+<!--        <field name="product_id" position="after">-->
+<!--          <field name="description_d"/>-->
+<!--        </field>-->
+<!--      </field>-->
+<!--    </record>-->
+
+    <!-- Product kanban view inherited and added new fields -->
+    <record id="product_template_kanban_inherit" model="ir.ui.view">
+      <field name="name">product.template.kanban.inherited</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_kanban_view"/>
+      <field name="arch" type="xml">
+            <ul>
+              <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">
+                <li>Part Number: <field name="oe_number"/></li>
+              </xpath>
+               <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">
+                <li>Brand : <field name="default_code"/></li>
+                <li>Vendor Number: <field name="v_number"/></li>
+              </xpath>
+            </ul>
+      </field>  
+    </record>
+
+
+        
+  </data>
+</odoo>

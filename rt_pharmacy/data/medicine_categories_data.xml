@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Medicine Categories -->
+        <record id="pharmacy_category_pain" model="product.category">
+            <field name="name">Analgesics/Painkillers</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that relieve pain. There are two main types: non-narcotic analgesics for mild pain, and narcotic analgesics for severe pain</field>
+        </record>
+        <record id="pharmacy_category_antacid" model="product.category">
+            <field name="name">Antacids</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that relieve indigestion and heartburn by neutralizing stomach acid</field>
+        </record>
+        <record id="pharmacy_category_antifung" model="product.category">
+            <field name="name">Antifungals</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used to treat fungal infections, the most common of which affect the hair, skin, nails, or mucous membranes</field>
+        </record>
+        <record id="pharmacy_category_antiviral" model="product.category">
+            <field name="name">Antivirals</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used to treat viral infections or to provide temporary protection against infections such as influenza.</field>
+        </record>
+        <record id="pharmacy_category_antihyper" model="product.category">
+            <field name="name">Antihypertensives</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that lower blood pressure. The types of antihypertensives currently marketed include diuretics, beta-blockers, calcium channel blocker, ACE (angiotensin- converting enzyme) inhibitors, centrally acting antihypertensives and sympatholytics</field>
+
+        </record>
+        <record id="pharmacy_category_antihista" model="product.category">
+            <field name="name">Antihistamines</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used primarily to counteract the effects of histamine, one of the chemicals involved in allergic reactions</field>
+
+        </record>
+        <record id="pharmacy_category_antinflame" model="product.category">
+            <field name="name">Anti-Inflammatories</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used to reduce inflammation - the redness, heat, swelling, and increased blood flow found in infections and in many chronic noninfective diseases such as rheumatoid arthritis and gout</field>
+        </record>
+        <record id="pharmacy_category_antix" model="product.category">
+            <field name="name">Anti-anxiety Drugs</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that suppress anxiety and relax muscles (sometimes called anxiolytics, sedatives, or minor tranquilizers)</field>
+        </record>
+        <record id="pharmacy_category_antiarr" model="product.category">
+            <field name="name">Antiarrhythmics</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used to control irregularities of heartbeat</field>
+        </record>
+        <record id="pharmacy_category_antibact" model="product.category">
+            <field name="name">Antibacterials</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used to treat infections</field>
+        </record>
+        <record id="pharmacy_category_antibio" model="product.category">
+            <field name="name">Antibiotics</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs made from naturally occurring and synthetic substances that combat bacterial infection. Some antibiotics are effective only against limited types of bacteria. Others, known as broad spectrum antibiotics, are effective against a wide range of bacteria</field>
+        </record>
+        <record id="pharmacy_category_antithro" model="product.category">
+            <field name="name">Anticoagulants and Thrombolytics</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Anticoagulants prevent blood from clotting. Thrombolytics help dissolve and disperse blood clots and may be prescribed for patients with recent arterial or venous thrombosis</field>
+        </record>
+        <record id="pharmacy_category_anticonv" model="product.category">
+            <field name="name">Anticonvulsants</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that prevent epileptic seizures</field>
+        </record>
+        <record id="pharmacy_category_antidepp" model="product.category">
+            <field name="name">Antidepressants</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">There are three main groups of mood-lifting antidepressants: tricyclics, monoamine oxidase inhibitors, and selective serotonin reuptake inhibitors (SSRIs)</field>
+        </record>
+        <record id="pharmacy_category_antidiar" model="product.category">
+            <field name="name">Antidiarrheals</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used for the relief of diarrhea. Two main types of antidiarrheal preparations are simple adsorbent substances and drugs that slow down the contractions of the bowel muscles so that the contents are propelled more slowly</field>
+        </record>
+        <record id="pharmacy_category_antiemit" model="product.category">
+            <field name="name">Antiemetics</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs used to treat nausea and vomiting</field>
+        </record>
+        <record id="pharmacy_category_bronch" model="product.category">
+            <field name="name">Bronchodilators</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that open up the bronchial tubes within the lungs when the tubes have become narrowed by muscle spasm. Bronchodilators ease breathing in diseases such as asthma</field>
+        </record>
+        <record id="pharmacy_category_cold" model="product.category">
+            <field name="name">Cold Cures</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Although there is no drug that can cure a cold, the aches, pains, and fever that accompany a cold can be relieved by aspirin or acetaminophen often accompanied by a decongestant, antihistamine, and sometimes caffeine</field>
+        </record>
+        <record id="pharmacy_category_cough" model="product.category">
+            <field name="name">Cough Suppressants</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Simple cough medicines, which contain substances such as honey, glycerine, or menthol, soothe throat irritation but do not actually suppress coughing. They are most soothing when taken as lozenges and dissolved in the mouth. As liquids they are probably swallowed too quickly to be effective. A few drugs are actually cough suppressants. There are two groups of cough suppressants: those that alter the consistency or production of phlegm such as mucolytics and expectorants; and those that suppress the coughing reflex such as codeine (narcotic cough suppressants), antihistamines, dextromethorphan and isoproterenol (non-narcotic cough suppressants)</field>
+        </record>
+        <record id="pharmacy_category_decong" model="product.category">
+            <field name="name">Decongestants</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that reduce swelling of the mucous membranes that line the nose by constricting blood vessels, thus relieving nasal stuffiness</field>
+        </record>
+        <record id="pharmacy_category_diuret" model="product.category">
+            <field name="name">Diuretics</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that increase the quantity of urine produced by the kidneys and passed out of the body, thus ridding the body of excess fluid. Diuretics reduce water logging of the tissues caused by fluid retention in disorders of the heart, kidneys, and liver. They are useful in treating mild cases of high blood pressure.</field>
+        </record>
+        <record id="pharmacy_category_hypogl" model="product.category">
+            <field name="name">Hypoglycemics (Oral)</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that lower the level of glucose in the blood. Oral hypoglycemic drugs are used in diabetes mellitus if it cannot be controlled by diet alone, but does require treatment with injections of insulin</field>
+        </record>
+        <record id="pharmacy_category_immuno" model="product.category">
+            <field name="name">Immunosuppressives</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that prevent or reduce the body's normal reaction to invasion by disease or by foreign tissues. Immunosuppressives are used to treat autoimmune diseases (in which the body's defenses work abnormally and attack its own tissues) and to help prevent rejection of organ transplants</field>
+        </record>
+        <record id="pharmacy_category_laxat" model="product.category">
+            <field name="name">Laxatives</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that increase the frequency and ease of bowel movements, either by stimulating the bowel wall (stimulant laxative), by increasing the bulk of bowel contents (bulk laxative), or by lubricating them (stool-softeners, or bowel movement-softeners). Laxatives may be taken by mouth or directly into the lower bowel as suppositories or enemas. If laxatives are taken regularly, the bowels may ultimately become unable to work properly without them</field>
+        </record>
+        <record id="pharmacy_category_sleep" model="product.category">
+            <field name="name">Sleeping Drugs</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">The two main groups of drugs that are used to induce sleep are benzodiazepines and barbiturates. All such drugs have a sedative effect in low doses and are effective sleeping medications in higher doses. Benzodiazepines drugs are used more widely than barbiturates because they are safer, the side-effects are less marked, and there is less risk of eventual physical dependence</field>
+        </record>
+        <record id="pharmacy_category_muscle" model="product.category">
+            <field name="name">Muscle Relaxants</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Drugs that relieve muscle spasm in disorders such as backache. Antianxiety drugs (minor tranquilizers) that also have a muscle-relaxant action are used most commonly</field>
+        </record>
+        <record id="pharmacy_category_trang" model="product.category">
+            <field name="name">Tranquilizer</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">This is a term commonly used to describe any drug that has a calming or sedative effect. However, the drugs that are sometimes called minor tranquilizers should be called antianxiety drugs, and the drugs that are sometimes called major tranquilizers should be called antipsychotics</field>
+        </record>
+        <record id="pharmacy_category_vit" model="product.category">
+            <field name="name">Vitamins</field>
+            <field name="is_medicine">True</field>
+            <field name="category_detail">Chemicals essential in small quantities for good health. Some vitamins are not manufactured by the body, but adequate quantities are present in a normal diet. People whose diets are inadequate or who have digestive tract or liver disorders may need to take supplementary vitamins</field>
+        </record>
+
+
+
+        <!--     Medicine Types -->
+        <record id="medicine_type_tablet" model="medicine.type">
+            <field name="name">Tablet(s)</field>
+            <field name="type_description">The active ingredient is combined with another substance and pressed into a round or oval solid shape. There are different types of tablet. Soluble or dispersible tablets can safely be dissolved in water</field>
+        </record>
+        <record id="medicine_type_liquid" model="medicine.type">
+            <field name="name">Liquid/Syrup</field>
+            <field name="type_description">The active part of the medicine is combined with a liquid to make it easier to take or better absorbed. A liquid may also be called a ‘mixture’, ‘solution’ or ‘syrup’. Many common liquids are now available without any added colouring or sugar</field>
+        </record>
+        <record id="medicine_type_caps" model="medicine.type">
+            <field name="name">Capsules</field>
+            <field name="type_description">The active part of the medicine is contained inside a plastic shell that dissolves slowly in the stomach. You can take some capsules apart and mix the contents with your child’s favourite food. Others need to be swallowed whole, so the medicine isn’t absorbed until the stomach acid breaks down the capsule shell</field>
+        </record>
+        <record id="medicine_type_drops" model="medicine.type">
+            <field name="name">Drops</field>
+            <field name="type_description">These are often used where the active part of the medicine works best if it reaches the affected area directly. They tend to be used for eye, ear or nose</field>
+        </record>
+        <record id="medicine_type_cream" model="medicine.type">
+            <field name="name">Cream</field>
+            <field name="type_description">They come in tubs, bottles or tubes depending on the type of medicine. The active part of the medicine is mixed with another substance, making it easy to apply to the skin</field>
+        </record>
+        <record id="medicine_type_spray" model="medicine.type">
+            <field name="name">Spray</field>
+            <field name="type_description"></field>
+        </record>
+        <record id="medicine_type_suppo" model="medicine.type">
+            <field name="name">Suppositories</field>
+            <field name="type_description">The active part of the medicine is combined with another substance and pressed into a ‘bullet shape’ so it can be inserted into the bottom. Suppositories mustn't be swallowed</field>
+        </record>
+        <record id="medicine_type_inhale" model="medicine.type">
+            <field name="name">Inhaler(s)</field>
+            <field name="type_description">The active part of the medicine is released under pressure directly into the lungs. Young children may need to use a ‘spacer’ device to take the medicine properly. Inhalers can be difficult to use at first so your pharmacist will show you how to use them</field>
+        </record>
+        <record id="medicine_type_inject" model="medicine.type">
+            <field name="name">Injection(s)</field>
+            <field name="type_description"></field>
+        </record>
+        <record id="medicine_type_inhale" model="medicine.type">
+            <field name="name">Ointment(s)</field>
+            <field name="type_description">They come in tubs, bottles or tubes depending on the type of medicine. The active part of the medicine is mixed with another substance, making it easy to apply to the skin</field>
+        </record>
+
+
+        <!--        quote defaults-->
+<!--        <record id="quote_defaults_name" model="quote.defaults">-->
+<!--            <field name="name">Instefast NB</field>-->
+<!--            <field name="note">i. All Prices given are inclusive of installation charges.-->
+<!--ii. The amount given includes all materials and work listed and does not include any other material, service or works not listed hereunder.-->
+<!--iii. The client is responsible for making the site ready for work and providing any material or service that they are obliged to provide. That may include reliable-->
+<!--    electric power, Bed preparation labor, and any other materials not herewith included in this quote.-->
+<!--iv. All structures shall have a Defect Liability Period (DLP)/warrant of 6 months from the time of commissioning.-->
+
+<!--Validity period: 28 days from the date of issue.-->
+
+<!--We trust that our quotation meets your approval. We look forward to working with you.-->
+<!--Thank you for choosing us. We are dedicated to serving you. We look forward to a positive feedback and more working days with you. Kindly reach us through the phone number and the email provided if you have any query.</field>-->
+<!--            <field name="payment_details">BANK                    : FAMILY BANK-->
+<!--ACC. No               : 0340 0002 1405-->
+<!--ACCOUNT NAME:  INSTEFAST LIMITED-->
+
+<!--Lipa Na Mpesa-->
+<!--PayBill no. 222111-->
+<!--ACC. No. 2012102-->
+<!--ACCOUNT NAME: INSTEFAST LTD</field>-->
+<!--        </record>-->
+    </data>
+</odoo>

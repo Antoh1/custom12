@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template id="template" xml:space="preserve">
+    <t t-name="DashBtn">
+        <div class="control-button">
+            <i class="fa fa-dashboard"/>Location
+        </div>
+    </t>
+    <t t-name="SaleBtn">
+        <div class="control-button">
+            <i class="fa fa-dashboard"/>Sale History
+        </div>
+    </t>
+</template>

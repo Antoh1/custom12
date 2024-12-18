@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+  <data>
+    <!-- inherited product form view and add fields and attributes -->
+<!--    <record id="product_template_form_view_inherit_pos_analysis" model="ir.ui.view">-->
+<!--      <field name="name">product.template.inherited.pos.analysis</field>-->
+<!--      <field name="model">product.template</field>-->
+<!--      <field name="inherit_id" ref="product.product_template_only_form_view"/>-->
+<!--      <field name="arch" type="xml">-->
+<!--        <xpath expr="//label[@for='standard_price']" position="attributes">-->
+<!--          <attribute name="groups">	base.group_erp_manager</attribute>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//div[@name='standard_price_uom']" position="attributes">-->
+<!--          <attribute name="groups">base.group_erp_manager</attribute>-->
+<!--        </xpath>-->
+<!--      </field>-->
+<!--    </record>-->
+
+<!--    <record id="product_template_tree_view_inherit_pos_analysis" model="ir.ui.view">-->
+<!--      <field name="name">product.template.inherited.tree.pos.analysis</field>-->
+<!--      <field name="model">product.template</field>-->
+<!--      <field name="inherit_id" ref="product.product_template_tree_view"/>-->
+<!--      <field name="arch" type="xml">-->
+<!--        <xpath expr="//field[@name='standard_price']" position="attributes">-->
+<!--          <attribute name="groups">base.group_erp_manager</attribute>-->
+<!--        </xpath>-->
+<!--      </field>-->
+<!--    </record>-->
+
+    <record id="rt_pos_order_tree_view_inherit_pos_analysis" model="ir.ui.view">
+      <field name="name">rt.pos.order.inherited.tree.pos.analysis</field>
+      <field name="model">pos.order</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="after">
+          <field name="rt_payment_method"/>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- Product kanban view inherited and added new fields -->
+    <!--    <record id="product_template_kanban_inherit" model="ir.ui.view">-->
+    <!--      <field name="name">product.template.kanban.inherited</field>-->
+    <!--      <field name="model">product.template</field>-->
+    <!--      <field name="inherit_id" ref="product.product_template_kanban_view"/>-->
+    <!--      <field name="arch" type="xml">-->
+    <!--        <ul>-->
+    <!--          <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">-->
+    <!--            <li>OE Number: <field name="ppartno"/></li>-->
+    <!--          </xpath>-->
+    <!--          <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">-->
+    <!--            <li>Vendor Number: <field name="mpartno"/></li>-->
+    <!--          </xpath>-->
+    <!--        </ul>-->
+    <!--      </field>-->
+    <!--    </record>-->
+
+    <!-- inherited product search and extended search for new fields -->
+    <!--    <record id="product_search_inherit" model="ir.ui.view">-->
+    <!--      <field name="name">product.search.inherit</field>-->
+    <!--      <field name="model">product.template</field>-->
+    <!--      <field name="inherit_id" ref="product.product_template_search_view"/>-->
+    <!--      <field name="arch" type="xml">-->
+    <!--        <field name="name" position="replace">-->
+    <!--          <field name="name" string="Product" filter_domain="['|', '|', '|', '|', ('default_code', 'ilike', self), ('ppartno', 'ilike', self), ('mpartno', 'ilike', self), ('name', 'ilike', self), ('barcode', 'ilike', self)]"/>-->
+    <!--        </field>-->
+    <!--        &lt;!&ndash; dummy, will be modified by groups &ndash;&gt;-->
+    <!--        &lt;!&ndash;          <xpath expr="//search" position="inside">&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <field name="ppartno" string="OE Number"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <field name="mpartno" string="Vendor No"/>&ndash;&gt;-->
+    <!--        <xpath expr="//group" position="inside">-->
+    <!--          <filter string="Brand" name="default_code" domain="[]" context="{'group_by':'default_code'}"/>-->
+    <!--        </xpath>-->
+    <!--      </field>-->
+    <!--    </record>-->
+
+  </data>
+</odoo>

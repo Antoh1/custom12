@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+  <data>
+    <!-- inherited product form view and added field -->
+    <record id="project_product_product_form_view_inherit" model="ir.ui.view">
+      <field name="name">project.product.product.template.inherited</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <separator/>
+          <field name="pro_category" attrs="{'invisible':[('type','!=','service')]}"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- inherited product template form view and added field -->
+    <record id="project_product_template_form_view_inherit" model="ir.ui.view">
+      <field name="name">project.product.template.inherited</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <field name="barcode" position="after">
+          <separator/>
+          <field name="pro_category" attrs="{'invisible':[('type','!=','service')]}"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- Product kanban view inherited and added new field -->
+    <record id="project_product_template_kanban_inherit" model="ir.ui.view">
+      <field name="name">project.product.template.kanban.inherited</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_kanban_view"/>
+      <field name="arch" type="xml">
+            <ul>
+              <xpath expr="//field[@name('qty_available')]" position="after">
+                <li attrs="{'invisible':[('type','!=','service')]}">Project Category: <field name="pro_category" /></li>
+              </xpath>
+            </ul>
+      </field>  
+    </record>
+        
+  </data>
+</odoo>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Materials Group-->
+        <!--        GREENHOUSES-->
+        <record id="material_group_steel" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Galvanized steel tubes:1.5mm, 42mm, 38mm, 32mm, 32mm
+BP, 25mm</field>
+        </record>
+        <record id="material_group_steel1" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Non Galvanized steel tubes:1.5mm, 42mm, 38mm, 32mm, 32mm
+BP, 25mm</field>
+        </record>
+        <record id="material_group_steel2" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Galvanized greenhouse profiles</field>
+        </record>
+        <record id="material_group_steel3" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">High tensile wiggle wires</field>
+        </record>
+        <record id="material_group_steel4" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">UV Stabilized greenhouse paper</field>
+        </record>
+        <record id="material_group_steel5" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">UV Stabilized Insect net</field>
+        </record>
+        <record id="material_group_steel6" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">UV Stabilized Shade net</field>
+        </record>
+        <record id="material_group_steel7" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">1mm Dam liner strip or aluminium gutter profile</field>
+        </record>
+        <record id="material_group_steel8" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Waste pipes 4" and fittings</field>
+        </record>
+        <record id="material_group_steel9" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Prefabricated Aluminum Gutter water collectors (Large
+size:450mm by 400mm)</field>
+        </record>
+        <record id="material_group_steel10" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Tungit and other accessories</field>
+        </record>
+        <record id="material_group_steel11" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Fabricated collector support</field>
+        </record>
+        <record id="material_group_steel12" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Paper traps 32mm, 25mm</field>
+        </record>
+        <record id="material_group_steel13" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Manual rollup kit</field>
+        </record>
+        <record id="material_group_steel14" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">38mm Bp bend profiles</field>
+        </record>
+        <record id="material_group_steel15" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Whoop iron and wood pyron</field>
+        </record>
+        <record id="material_group_steel16" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Hinges and Locks</field>
+        </record>
+        <record id="material_group_steel18" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Self-Tapping screws : 8mm</field>
+        </record>
+        <record id="material_group_steel19" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Class B concrete well packed around each support collumns</field>
+        </record>
+        <record id="material_group_steel20" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Power cabling, short distance charges etc</field>
+        </record>
+        <record id="material_group_steel21" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Greenhouse materials from workshop to site.</field>
+        </record>
+        <record id="material_group_steel22" model="item.group">
+            <field name="project_category" ref="quotation_project_green"/>
+            <field name="name">Materials (OTHERS) and labour Mobilization.</field>
+        </record>
+
+        <!--        Solar Dryers-->
+        <record id="material_group_sol1" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Galvanized steel tubes:1.5mm, 42mm, 38mm, 32mm, 32mm
+BP, 25mm</field>
+        </record>
+        <record id="material_group_sol2" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Non Galvanized steel tubes:1.5mm, 42mm, 38mm, 32mm, 32mm
+BP, 25mm</field>
+        </record>
+        <record id="material_group_sol3" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">High tensile wiggle wires</field>
+        </record>
+        <record id="material_group_sol4" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">UV Stabilized greenhouse paper</field>
+        </record>
+        <record id="material_group_sol5" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">UV Stabilized Insect net</field>
+        </record>
+        <record id="material_group_sol6" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">UV Stabilized Shade net</field>
+        </record>
+        <record id="material_group_sol7" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Manual rollup kit</field>
+        </record>
+        <record id="material_group_sol8" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">38mm Bp bend profiles</field>
+        </record>
+        <record id="material_group_sol9" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Whoop iron and wood pyron</field>
+        </record>
+        <record id="material_group_sol10" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Hinges and Locks</field>
+        </record>
+        <record id="material_group_sol11" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Self-Tapping screws : 8mm</field>
+        </record>
+        <record id="material_group_sol12" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Class B concrete well-packed around each support columns</field>
+        </record>
+        <record id="material_group_sol13" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Power cabling, short distance charges etc</field>
+        </record>
+        <record id="material_group_sol14" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Solar Dryer materials from workshop to site.</field>
+        </record>
+        <record id="material_group_sol15" model="item.group">
+            <field name="project_category" ref="quotation_project_dryer"/>
+            <field name="name">Materials (OTHERS) and labour Mobilization.</field>
+        </record>
+    </data>
+</odoo>

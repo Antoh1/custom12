@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="sale_order_form_view_document_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.view.document.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="before">
+<!--                    <field name="state" invisible="0"/>-->
+                    <field name="lpo_number" attrs="{'invisible': ['|',('state', '=', 'draft'),('state', '=', 'sent')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="customer_rep"/>
+                    <field name="customer_ref"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="machine"/>
+                </xpath>
+                <xpath expr="//field[@name='note']" position="after">
+                    <field name="payment_condition"/>
+                    <field name="details"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

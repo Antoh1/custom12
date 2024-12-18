@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="document_defaults_form_view">
+            <field name="name">document.defaults.form.view</field>
+            <field name="model">document.defaults</field>
+            <field name="arch" type="xml">
+                <form>
+<!--                    <header></header>-->
+                    <sheet string="Defaults">
+                        <group>
+                            <field name="name"/>
+                            <field name="note"/>
+<!--                            <field name="payment_details"/>-->
+                            <field name="details"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_document_defaults">
+          <field name="name">Quote Defaults</field>
+          <field name="res_model">document.defaults</field>
+          <field name="view_mode">tree,form</field>
+          <field name="help" type="html">
+              <p>
+                  Create Document Defaults
+              </p>
+          </field>
+      </record>
+
+      <menuitem id="document_report_defaults"
+            name="Document Defaults"
+            parent="sale.menu_sale_config"
+            action="action_document_defaults"
+            sequence="3"/>
+  </data>
+</odoo>

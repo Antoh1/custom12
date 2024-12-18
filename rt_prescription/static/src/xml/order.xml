@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	
+	
+	<t t-extend="Orderline">                
+        <t t-jquery="ul[class*='info-list']" t-operation="append">
+            <t t-if="line.get_line_patient()">
+                <li class="info orderline-note">
+                    <i class="fa fa-tag"/>Prescription:
+                    <t t-esc="line.get_line_patient()"/>,
+                    <t t-esc="line.get_line_patient_no()"/>,
+                    <t t-esc="line.get_line_hospital()"/>
+                </li>
+            </t>
+        </t>
+    </t>
+    
+</templates>

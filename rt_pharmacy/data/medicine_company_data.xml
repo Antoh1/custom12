@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Medicine Companies -->
+        <record id="medicine_company_insta" model="medicine.company">
+            <field name="name">INSTA PRODUCTS [E.P.Z] LIMITED</field>
+            <field name="address">Eldama Park Eldama Ravine Road Nairobi, 00606 Kenya</field>
+            <field name="website">www.instaproducts.co</field>
+        </record>
+        <record id="medicine_company_hsl" model="medicine.company">
+            <field name="name">HEALTH STRAT LIMITED</field>
+            <field name="address">Opposite Radar Security, Saachi plaza Argwings Kodhek Road Nairobi, 00505 Kenya</field>
+            <field name="website">www.healthstrat.co.ke</field>
+        </record>
+        <record id="medicine_company_glax" model="medicine.company">
+            <field name="name">GLAXOSMITHKLINE LIMITED</field>
+            <field name="address">Likoni Road Nairobi, 00507 Kenya</field>
+            <field name="website">www.haleon.com</field>
+        </record>
+        <record id="medicine_company_norb" model="medicine.company">
+            <field name="name">NORBROOK KENYA LIMITED</field>
+            <field name="address">Sarit Centre Old Limuru Road Nairobi, 00606 Kenya</field>
+            <field name="website">www.norbrook.com</field>
+        </record>
+        <record id="medicine_company_sans" model="medicine.company">
+            <field name="name">MEDECINS SANS FRONTIERES KENYA SUPPLY UNIT</field>
+            <field name="address">Memkam Complex, Unit 1 Nairobi Kenya</field>
+            <field name="website">www.msfksu.com</field>
+        </record>
+        <record id="medicine_company_prod" model="medicine.company">
+            <field name="name">PRODIGY HEALTHCARE LIMITED</field>
+            <field name="address">Godown number 9 Nairobi Kenya</field>
+            <field name="website">www.prodigyhealthcare.co.ke</field>
+        </record>
+        <record id="medicine_company_sai" model="medicine.company">
+            <field name="name">SAI PHARMACEUTICALS LIMITED</field>
+            <field name="address">Whitefield Edge, Junction of James Gichuru Road Nairobi, 00800 Kenya</field>
+            <field name="website">www.saipharm.com</field>
+        </record>
+        <record id="medicine_company_phil" model="medicine.company">
+            <field name="name">PHILLIPS PHARMACEUTICALS LIMITED</field>
+            <field name="address">Next to Total Petrol Station, Phillips Business Park Mombasa Road Nairobi, 00100 Kenya</field>
+            <field name="website">www.philipspharma.com</field>
+        </record>
+        <record id="medicine_company_dent" model="medicine.company">
+            <field name="name">DENTEX INDUSTRIES LIMITED</field>
+            <field name="address">Addis Ababa Road Nairobi, 00100 Kenya</field>
+            <field name="website"></field>
+        </record>
+        <record id="medicine_company_aesth" model="medicine.company">
+            <field name="name">AESTHETICS LTD</field>
+            <field name="address">House of Aesthetics Pembe Road Nairobi Kenya </field>
+            <field name="website">www.aestheticsltd.com</field>
+        </record>
+        <record id="medicine_company_range" model="medicine.company">
+            <field name="name">RANGECHEM PHARMACEUTICALS LIMITED</field>
+            <field name="address">Waiyaki Way, Kangemi Nairobi Kenya</field>
+            <field name="website">www.rangechem.co.ke</field>
+        </record>
+        <record id="medicine_company_mac" model="medicine.company">
+            <field name="name">MAC NAUGHTON LIMITED</field>
+            <field name="address">Nairobi Central Ngong Road Nairobi Kenya</field>
+            <field name="website">www.macnaughtonltd.com</field>
+        </record>
+        <record id="medicine_company_regal" model="medicine.company">
+            <field name="name">REGAL PHARMACEUTICALS LIMITED</field>
+            <field name="address">Plot No 7879/18, Road 1 Nairobi, 00100 Kenya </field>
+            <field name="website">www.regalpharmaceuticals.com</field>
+        </record>
+        <record id="medicine_company_beta" model="medicine.company">
+            <field name="name">BETA HEALTHCARE INTERNATIONAL LIMITED</field>
+            <field name="address">Mogadishu Road, Industrial Area Nairobi Kenya </field>
+            <field name="website">www.betacare.co.ke</field>
+        </record>
+        <record id="medicine_company_allied" model="medicine.company">
+            <field name="name">LABORATORY AND ALLIED LIMITED</field>
+            <field name="address">Mombasa Road, Plot No. 209/10349 Nairobi, 00100 Kenya </field>
+            <field name="website">www.laballied.com</field>
+        </record>
+        <record id="medicine_company_classiq" model="medicine.company">
+            <field name="name">HEALTH CLASSIQUE LIMITED</field>
+            <field name="address">Nextgen Mall Mombasa Road Nairobi, 00200 Kenya</field>
+            <field name="website">www.healthclassique.com </field>
+        </record>
+        <record id="medicine_company_sea" model="medicine.company">
+            <field name="name">SEA LINK MEDICAL SUPPLIES</field>
+            <field name="address">Luthuli House Luthuli Avenue Nairobi, Nairobi Kenya</field>
+            <field name="website"></field>
+        </record>
+        <record id="medicine_company_ben" model="medicine.company">
+            <field name="name">BENMED PHARMACEUTICALS LIMITED</field>
+            <field name="address">Tom Mboya Street Nairobi, Nairobi, 00400 Kenya</field>
+            <field name="website"></field>
+        </record>
+        <record id="medicine_company_zee" model="medicine.company">
+            <field name="name">ZEETAH HEALTHCARE LIMITED</field>
+            <field name="address">The Oval Building Muthithi Road Nairobi Kenya</field>
+            <field name="website"></field>
+        </record>
+        <record id="medicine_company_zain" model="medicine.company">
+            <field name="name">ZAIN PHARMA LIMITED</field>
+            <field name="address">Behind Nice &#38; Lovely, Plot No: 209/13741, Off Mombasa Road Nairobi, Nairobi, 00101 Kenya</field>
+            <field name="website">www.zainpharma.co.ke</field>
+        </record>
+        <record id="medicine_company_sphin" model="medicine.company">
+            <field name="name">SPHINX PHARMACEUTICALS LIMITED</field>
+            <field name="address">Old Airport North Road Nairobi Kenya</field>
+            <field name="website">www.sphinx.co.ke</field>
+        </record>
+        <record id="medicine_company_bimeda" model="medicine.company">
+            <field name="name">BIMEDA LIMITED</field>
+            <field name="address">Funzi Road Nairobi, Nairobi, 00100 Kenya</field>
+            <field name="website">www.bimeda.co.ke</field>
+        </record>
+        <record id="medicine_company_egyp" model="medicine.company">
+            <field name="name">EGYPRO PHARMA (K) LTD</field>
+            <field name="address">1 Kindaruma Road, Layalina Restuarant Compound Nairobi Kenya </field>
+            <field name="website">www.egypropharma.com</field>
+        </record>
+        <record id="medicine_company_galax" model="medicine.company">
+            <field name="name">GALAXY PHARMACEUTICAL LIMITED</field>
+            <field name="address">Opposite Agakhan Hospital, Parklands Mediplaza Main Street, Kirinyaga Road Nairobi Kenya</field>
+            <field name="website">www.new.galaxypharmaltd.co.ke</field>
+        </record>
+        <record id="medicine_company_biom" model="medicine.company">
+            <field name="name">BIOMERIEUX KENYA LIMITED</field>
+            <field name="address">Sanlam Tower Waiyaki Way Nairobi Kenya</field>
+            <field name="website">www.biomerieux.com</field>
+        </record>
+        <record id="medicine_company_coast" model="medicine.company">
+            <field name="name">COAST FARMCARE AGROVET LIMITED</field>
+            <field name="address">Opposite Mash E.A. Ltd Booking, Jomo Kenyatta Avenue Nairobi Kenya</field>
+            <field name="website">www.coastfarmcare.com</field>
+        </record>
+        <record id="medicine_company_orana" model="medicine.company">
+            <field name="name">ORANA KENYA LTD.</field>
+            <field name="address">Suite 305, Apricot House 4th Parkland Avenue Nairobi, 00600 Kenya</field>
+            <field name="website">www.orana.dk</field>
+        </record>
+    </data>
+</odoo>

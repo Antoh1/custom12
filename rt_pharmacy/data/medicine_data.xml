@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Medicines  -->
+        <record id="pharmacy_medicine_amoxicillin" model="product.template">
+            <field name="name">Amoxicillin</field>
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="list_price">400</field>
+            <field name="standard_price">250</field>
+            <field name="medicine_type_id" ref="rt_pharmacy.medicine_type_caps"/>
+            <field name="category_id" ref="rt_pharmacy.pharmacy_category_antibio"/>
+            <field name="medicine_company_id" ref="rt_pharmacy.medicine_company_sans"/>
+        </record>
+        <record id="pharmacy_medicine_insul" model="product.template">
+            <field name="name">Insulin Glargine</field>
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="is_prescription">True</field>
+            <field name="is_otc">False</field>
+            <field name="list_price">500</field>
+            <field name="standard_price">200</field>
+            <field name="medicine_type_id" ref="rt_pharmacy.medicine_type_inject"/>
+            <field name="category_id" ref="rt_pharmacy.pharmacy_category_antiarr"/>
+            <field name="medicine_company_id" ref="rt_pharmacy.medicine_company_allied"/>
+        </record>
+        <record id="pharmacy_medicine_aspirin" model="product.template">
+            <field name="name">Aspirin</field>
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="list_price">60</field>
+            <field name="standard_price">45</field>
+            <field name="medicine_type_id" ref="rt_pharmacy.medicine_type_tablet"/>
+            <field name="category_id" ref="rt_pharmacy.pharmacy_category_antinflame"/>
+            <field name="medicine_company_id" ref="rt_pharmacy.medicine_company_allied"/>
+        </record>
+        <record id="pharmacy_medicine_cetiriz" model="product.template">
+            <field name="name">Cetirizine</field>
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="is_prescription">True</field>
+            <field name="is_otc">False</field>
+            <field name="list_price">50</field>
+            <field name="standard_price">30</field>
+            <field name="medicine_type_id" ref="rt_pharmacy.medicine_type_tablet"/>
+            <field name="category_id" ref="rt_pharmacy.pharmacy_category_antiemit"/>
+            <field name="medicine_company_id" ref="rt_pharmacy.medicine_company_classiq"/>
+        </record>
+        <record id="pharmacy_medicine_prog" model="product.template">
+            <field name="name">Progesterone</field>
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="is_prescription">True</field>
+            <field name="is_otc">False</field>
+            <field name="list_price">600</field>
+            <field name="standard_price">400</field>
+        </record>
+        <record id="pharmacy_medicine_dic" model="product.template">
+            <field name="name">Diclofenac</field>
+            <field name="available_in_pos">True</field>
+            <field name="type">product</field>
+            <field name="medicine_type_id" ref="rt_pharmacy.medicine_type_cream"/>
+            <field name="category_id" ref="rt_pharmacy.pharmacy_category_muscle"/>
+            <field name="medicine_company_id" ref="rt_pharmacy.medicine_company_glax"/>
+            <field name="list_price">300</field>
+            <field name="standard_price">200</field>
+        </record>
+<!--        <record id="pharmacy_medicine_" model="product.template">-->
+<!--            <field name="name"></field>-->
+<!--            <field name="available_in_pos">True</field>-->
+<!--            <field name="type">product</field>-->
+<!--            <field name="is_prescription">True</field>-->
+<!--        </record>-->
+<!--        <record id="pharmacy_medicine_" model="product.template">-->
+<!--            <field name="name"></field>-->
+<!--            <field name="available_in_pos">True</field>-->
+<!--            <field name="type">product</field>-->
+<!--            <field name="is_prescription">True</field>-->
+<!--        </record>-->
+<!--        <record id="pharmacy_medicine_" model="product.template">-->
+<!--            <field name="name"></field>-->
+<!--            <field name="available_in_pos">True</field>-->
+<!--            <field name="type">product</field>-->
+<!--            <field name="is_prescription">True</field>-->
+<!--        </record>-->
+<!--        <record id="pharmacy_medicine_" model="product.template">-->
+<!--            <field name="name"></field>-->
+<!--            <field name="available_in_pos">True</field>-->
+<!--            <field name="type">product</field>-->
+<!--            <field name="is_prescription">True</field>-->
+<!--        </record>-->
+    </data>
+</odoo>

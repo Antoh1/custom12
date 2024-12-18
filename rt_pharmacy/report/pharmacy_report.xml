@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pharmacy_custom_paperformat" model="report.paperformat">
+        <field name="name">Quote Custom Paper Format</field>
+        <field name="format">A4</field>
+        <field name="orientation">Portrait</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="margin_top">45</field>
+        <field name="margin_bottom">5</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_spacing">35</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_patient_card" model="ir.actions.report">
+        <field name="name">Patient Report</field>
+        <field name="model">hospital.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">rt_pharmacy.report_patient_card</field>
+        <field name="report_file">rt_pharmacy.report_patient_card</field>
+        <field name="print_report_name">('Patient Card - %s' % (object.name))</field>
+        <field name="binding_model_id" ref="model_hospital_appointment"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_us"/>
+<!--        <field name="paperformat_id" ref="om_hr_payroll.payslip_custom_paperformat"/>-->
+    </record>
+<!--    <record id="action_report_project_materials" model="ir.actions.report">-->
+<!--        <field name="name">Materials Checklist PDF</field>-->
+<!--        <field name="model">project.quotation</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">rt_project_quotation.report_project_materials</field>-->
+<!--        <field name="report_file">rt_project_quotation.report_project_materials</field>-->
+<!--        <field name="print_report_name">('Materials Checklist - %s' % (object.name))</field>-->
+<!--        <field name="binding_model_id" ref="model_project_quotation"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--        <field name="paperformat_id" ref="base.paperformat_us"/>-->
+<!--    </record>-->
+<!--    <record id="material_checklist_xlsx_report" model="ir.actions.report">-->
+<!--        <field name="name">Material Checklist EXCEL</field>-->
+<!--        <field name="model">project.quotation</field>-->
+<!--        <field name="report_type">xlsx</field>-->
+<!--        <field name="report_name">rt_project_quotation.report_material_checklist</field>-->
+<!--        <field name="report_file">rt_project_quotation.report_material_checklist</field>-->
+<!--        <field name="print_report_name">Materials Checklist</field>-->
+<!--        <field name="binding_model_id" ref="model_project_quotation"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+<!--    <report-->
+<!--            id="material_checklist_xlsx_report"-->
+<!--            string="Material Checklist EXCEL"-->
+<!--            model="project.quotation"-->
+<!--            report_type="xlsx"-->
+<!--            name="rt_project_quotation.report_material_checklist"-->
+<!--            file="'Materials Checklist"-->
+<!--            print_report_name="('Materials Checklist - %s' % (object.name))"/>-->
+</odoo>

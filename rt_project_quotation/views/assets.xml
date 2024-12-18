@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="quote_assets" name="rt_project_quotation assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/rt_project_quotation/static/src/js/quote_models.js"/>
+            <link rel="stylesheet" href="/rt_project_quotation/static/src/css/pos.css"/>
+        </xpath>
+    </template>
+</odoo>

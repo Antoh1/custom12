@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="button_orderline_measure">
+        <div class='control-button'>
+            <i class='fa fa-tag' /> <span class="label">SQM Measurements</span>
+        </div>
+    </t>
+    
+    <t t-name="popup_orderline_measure">
+        <div style="height:100%" class="modal-dialog">
+            <div class="popup order-line-note" style="height:50%">
+                <p class="title"><t t-esc=" widget.options.title || 'Confirm ?' " /></p>
+                <p class="body"><t t-esc="  widget.options.body || '' "/></p>
+                <div class="row" style="padding-bottom: 40px">
+                    <div class="form-group label-floating is-empty">
+                        <table>
+                            <tr>
+                                <td>
+                                Length(m):<br/>
+                                    <input id="length" style="background-color: #CBF7B8;" >
+                                        <t t-esc="widget.options.length"/>
+                                    </input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Width(m):<br/>
+                                        <input id="width" style="background-color: #CBF7B8;">
+                                            <t t-esc="widget.options.width"/>
+                                        </input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Quantity:<br/>
+                                        <input id="quantity_sqm" style="background-color: #CBF7B8;" rows="1" cols="40">
+                                            <t t-esc="widget.options.quantity_sqm" class="note-input"/>
+                                        </input>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+<!--                        <b><span>Total SQM:<textarea id="total_sqm" style="background-color: #CBF7B8;" rows="1" cols="40"><t t-esc="widget.options.total_sqm" class="note-input"/></textarea></span></b>-->
+<!--                        <b><span>Product:<textarea id="product_sqm" style="background-color: #CBF7B8;" rows="1" cols="40"><t t-esc="widget.options.product_sqm" class="note-input"/></textarea></span></b>-->
+                        <!--<input type="text" t-att-value="widget.options.value || ''" class="note-input"/> -->
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="button confirm">
+                        Submit
+                    </div>
+                    <div class="button cancel">
+                        Close
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </t>
+
+
+</templates>

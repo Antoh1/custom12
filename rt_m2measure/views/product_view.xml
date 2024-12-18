@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+  <data>
+    <!-- inherited product form view and added field -->
+    <record id="project_product_product_form_view_inherit" model="ir.ui.view">
+      <field name="name">project.product.product.template.inherited</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="product.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <field name="pro_category" position="after">
+          <separator/>
+          <field name="is_m2"/>
+        </field>
+        <xpath expr="//page[@name='general_information']" position="after">
+          <page name="sqm_measures" string="SQM Measurements" attrs="{'invisible':[('is_m2','!=',True)]}">
+            <field name="sqm_measures" widget="one2many_list">
+              <tree string="SQM Measurement">
+                <field name="product_id"/>
+                <field name="length"/>
+                <field name="width"/>
+                <field name="quantity"/>
+                <field name="create_date"/>
+              </tree>
+            </field>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- inherited product template form view and added field -->
+    <record id="project_product_template_form_view_inherit" model="ir.ui.view">
+      <field name="name">project.product.template.inherited</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <field name="pro_category" position="after">
+          <separator/>
+          <field name="is_m2"/>
+        </field>
+        <xpath expr="//page[@name='general_information']" position="after">
+          <page name="sqm_measures" string="SQM Measurements" attrs="{'invisible':[('is_m2','!=',True)]}">
+            <field name="sqm_measures" widget="one2many_list">
+              <tree string="SQM Measurement">
+                <field name="product_id"/>
+                <field name="length"/>
+                <field name="width"/>
+                <field name="quantity"/>
+                <field name="create_date"/>
+              </tree>
+            </field>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

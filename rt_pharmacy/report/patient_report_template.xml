@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_patient_card">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>PATIENT CARD </h2>
+                        <h4> CARD NO :<span t-field="o.name"/><small><span class="float-right"><strong>Date </strong><span t-field="o.appointment_date"/></span></small></h4>
+                        <table class="table table-sm table-bordered">
+                            <tr>
+                                <td colspan="12" align="center">
+                                    <strong>Patient Details</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>PATIENT</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.patient_id.name"/>
+                                </td>
+                                <td>
+                                    <strong>Address</strong>
+                                </td>
+                                <td colspan="6">
+                                    <div t-field="o.patient_id.street"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Email</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.patient_id.email"/>
+                                </td>
+                                <td>
+                                    <strong>Phone</strong>
+                                </td>
+                                <td>
+                                    <span t-field="o.patient_id.phone"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Pharmacist/Doctor</th>
+                                    <th>Services Offered</th>
+                                    <th>Visit Date</th>
+                                    <th>Next Visit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <b><tr>Patient Visits</tr></b>
+                                <tr t-foreach="o.hospital_visits" t-as="line">
+                                    <td style="border: 1px solid black"><span t-field="line.doctor"/></td>
+                                    <td style="border: 1px solid black"><span t-field="line.service"/></td>
+                                    <td style="border: 1px solid black"><span t-field="line.visit_date"/></td>
+                                    <td style="border: 1px solid black"><span t-field="line.next_visit"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <span class="text-right"><b>Doctor's Prescription :</b><br/>
+                            <small><span t-field="o.prescription"/></small>
+                        </span><br/>
+<!--                        <span class="text-right"> <b> Payment Details :</b><br/>-->
+<!--                            <small><span t-field="o.pay_details"/></small>-->
+<!--                        </span>-->
+                        <br/>
+                        <br/>
+                        <span>
+                            ISSUED BY;<br/><span>&#160;</span><br/><span t-field="o.user_id.name"/><br/><span t-field="o.user_id.login"/><br/><span t-field="o.user_id.mobile"/>
+                        </span>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
